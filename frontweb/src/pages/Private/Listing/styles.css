@@ -1,0 +1,20 @@
+.movie-container {
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #ffffff;
+  
+    }
+  
+    .movie{
+      margin-top: 40px;
+      color: #ffffff;
+    }
+  
+    .movie ul{
+    font-size: 24px;
+    list-style-type: none;
+    text-decoration: none;
+    padding-left: 0px;
+    font-style: normal;
+     
+    }
