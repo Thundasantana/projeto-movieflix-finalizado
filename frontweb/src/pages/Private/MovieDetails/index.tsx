@@ -35,7 +35,8 @@ const MovieDetails = () => {
 return (
   <div className="movie-details-container">
     <h1>Tela Detalhes do filme id: {movieId}</h1>
-    {hasAnyRoles(['ROLE_MEMBER']) && <ReviewForm movieId={movieId} />}
+    {hasAnyRoles(['ROLE_MEMBER']) && 
+      <ReviewForm movieId={movieId} />}
     {reviews?.map((item) => (
       <div key={item.id}>
         <ReviewListing name={item.user.name} text={item.text} />

@@ -1,0 +1,55 @@
+.movie-crud-card {
+  margin-bottom: 20px;
+}
+
+.movie-crud-card-top-container {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.movie-crud-card-bottom-container {
+  padding: 15px 20px 30px 20px;
+}
+
+.movie-crud-card-bottom-container p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  color: #ffc700;
+  margin-bottom: 1px;
+}
+
+.movie-crud-card-subtitulo p {
+  font-weight: 400px;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+.movie-crud-card-top-container img {
+  height: 164px;
+  width: 290px;
+}
+
+.movie-crud-card-bottom-container h6 {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 576px) {
+  .movie-crud-card {
+    width: 260px;
+    margin-right: 5px;
+  }
+
+  @media (min-width: 1200px) {
+    .movie-crud-card-top-container img {
+      width: 260px;
+    }
+  }
+}
