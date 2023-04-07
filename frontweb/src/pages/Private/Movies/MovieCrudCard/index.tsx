@@ -9,7 +9,7 @@ const MovieCrudCard = ({ movie }: Props) => {
   return (
     <div className="base-card movie-crud-card">
       <div className="movie-crud-card-top-container">
-        <img src={movie.imgUrl} alt="Nome do Filme" />
+        <img src={movie.imgUrl} alt={movie.title} />
       </div>
       <div className="movie-crud-card-bottom-container">
         <h6>{movie.title}</h6>

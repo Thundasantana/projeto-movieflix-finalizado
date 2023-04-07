@@ -16,7 +16,7 @@ type FormData = {
 const ReviewForm = ({ movieId }: Props) => {
   const { register, handleSubmit } = useForm<FormData>();
 
-  const [hasError, setHasError] = useState(false);
+  const [, setHasError] = useState(false);
 
   const onSubmit = (formData: FormData) => {
     formData.movieId = parseInt(movieId);
