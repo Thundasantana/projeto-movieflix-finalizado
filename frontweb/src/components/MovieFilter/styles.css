@@ -1,0 +1,74 @@
+.movie-filter-container{
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .movie-filter-name-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+  }
+
+  .movie-filter-name-container input{
+    border: none;
+  }
+
+  .movie-filter-name-container input:focus{
+    box-shadow: none;
+  }
+
+  .movie-filter-name-container input::placeholder{
+    color: #FFFFFF;
+  }
+
+  .movie-filter-search-icon{
+    border: none;
+    background-color: unset;
+  }
+
+  .movie-filter-botton-container{
+    display: flex;
+  }
+  .movie-filter-range-container{
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .movie-selecect{
+    color: black;
+  }
+
+  @media (min-width: 768px){
+    .movie-filter-container{
+     width: 620px;
+     padding: 10px 15px;
+     flex: 1;
+    }
+
+    .movie-filter-form{
+        display: flex;
+    }
+    .movie-filter-name-container{
+      flex: 1;
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+    .movie-filter-botton-container{
+      flex: 1;
+    }
+  }
+
+  @media (min-width: 992px){
+    .movie-filter-container{
+     width: 880px;
+    }
+  }
+
+  @media (min-width: 1200px){
+    .movie-filter-container{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
