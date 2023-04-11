@@ -1,11 +1,15 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { requestPostReviewForm } from 'util/requests';
+import { requestBackend } from 'util/requests';
 import Button from 'components/ButtonIcon';
+import { Review } from 'type/review';
+import { AxiosRequestConfig } from 'axios';
+import { toast } from 'react-toastify';
+
 import './styles.css';
 
 type Props = {
   movieId: string;
+  onInsertReview: (review: Review) => void;
 };
 
 type FormData = {
@@ -13,21 +17,34 @@ type FormData = {
   movieId: number;
 };
 
-const ReviewForm = ({ movieId }: Props) => {
-  const { register, handleSubmit } = useForm<FormData>();
-
-  const [, setHasError] = useState(false);
+const ReviewForm = ({ movieId, onInsertReview }: Props) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm<FormData>();
 
   const onSubmit = (formData: FormData) => {
     formData.movieId = parseInt(movieId);
 
-    requestPostReviewForm(formData)
+    console.log(formData);
+
+    const config: AxiosRequestConfig = {
+      method: 'POST',
+      url: '/reviews',
+      data: formData,
+      withCredentials: true,
+    };
+
+    requestBackend(config)
       .then((response) => {
-        setHasError(false);
-        window.location.reload();
+        setValue('text', '');
+        onInsertReview(response.data);
+        toast.info('Avaliação realizada com sucesso');
       })
       .catch((error) => {
-        setHasError(true);
+        console.log('error');
       });
   };
 
@@ -36,7 +53,9 @@ const ReviewForm = ({ movieId }: Props) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <input
-            {...register('text')}
+            {...register('text', {
+              required: 'Campo obrigatório',
+            })}
             type="text"
             name="text"
             className="form-control form-input base-input"

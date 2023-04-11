@@ -1,54 +1,60 @@
 import { AxiosRequestConfig } from 'axios';
-import Pagination from 'components/Pagination';
-import MovieCrudCard from 'pages/Private/Movies/MovieCrudCard';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Movie } from 'type/movie';
-import { SpringPage } from 'type/vendor/spring';
 import { requestBackend } from 'util/requests';
 
-type ControlComponentsData = {
-  activePage: number;
+import './styles.css';
+
+type UrlParams = {
+  movieId: string;
 };
 
 const List = () => {
-  const [page, setPage] = useState<SpringPage<Movie>>();
+  const { movieId } = useParams<UrlParams>();
 
-  const [controlComponentsData, setControlComponentsData] =
-    useState<ControlComponentsData>({
-      activePage: 0,
-    });
-
-  const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
-  };
+  const [movie, setMovies] = useState<Movie>();
 
   useEffect(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: '/movies',
-      params: {
-        page: controlComponentsData.activePage,
-        size: 3,
-      },
+      url: `/movies/${movieId}`,
+      withCredentials: true,
+      
     };
+
     requestBackend(config).then((response) => {
-      setPage(response.data);
+      setMovies(response.data);
     });
-  }, [controlComponentsData]);
+    
+  }, [movieId]);
 
   return (
-    <div className="row">
-      {page?.content.map((movie) => (
-        <div key={movie.id} className="col-sm-4">
-          <MovieCrudCard movie={movie} />
+    <>
+      <div className="movie-details-container">
+        <div className="base-card movie-details-card">
+          <div className="row">
+            <div className="col-xl-6">
+              <div className="img-container">
+                <img src={movie?.imgUrl} alt={movie?.imgUrl} />
+              </div>
+            </div>
+            <div className="col-xl-6">
+              <div className="name-movie">
+                <h6>{movie?.subTitle}</h6>
+                <p>{movie?.year}</p>
+                <div className="subtitulo-descrition">
+                  <p>{movie?.subTitle}</p>
+                </div>
+              </div>
+              <div className="description-container">
+                <p>{movie?.synopsis}</p>
+              </div>
+            </div>
+          </div>
         </div>
-      ))}
-      <Pagination
-        pageCount={page ? page.totalPages : 0}
-        range={3}
-        onChange={handlePageChange}
-      />
-    </div>
+      </div>
+    </>
   );
 };
 
