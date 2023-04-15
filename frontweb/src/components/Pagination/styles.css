@@ -10,22 +10,13 @@
   border-radius: 50%;
   background-color: #6c6c6c;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: -0.015em;
-  color: #ffffff;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-}
-
-.arrow-previous {
-  transform: rotate(-180deg);
-  color: #ffc700;
-}
-
-.arrow-next {
-  color: #ffc700;
 }
 
 .pagination-item.active {
@@ -34,6 +25,16 @@
 
 .pagination-link-active {
   background-color: #ffc700;
+}
+
+.arrow-previous {
+  transform: rotate(-180deg);
+  color: #ffc700;
+}
+
+.arrow-next {
+  margin-left: 10px;
+  color: #ffc700;
 }
 
 .arrow-inactive {

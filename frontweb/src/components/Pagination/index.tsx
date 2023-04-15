@@ -1,4 +1,4 @@
-import { ReactComponent as ArrowIcon } from 'assets/image/seta.svg';
+import { ReactComponent as ArrowIcon } from 'assets/images/seta.svg';
 import ReactPaginate from 'react-paginate';
 
 import './styles.css';
@@ -25,16 +25,8 @@ const Pagination = ({ forcePage, pageCount, range, onChange }: Props) => {
       activeLinkClassName="pagination-link-active"
       disabledClassName="arrow-inactive"
       onPageChange={(items) => (onChange ? onChange(items.selected) : {})}
-      previousLabel={
-        <div className="pagination-arrow-container">
-          <ArrowIcon />
-        </div>
-      }
-      nextLabel={
-        <div className="pagination-arrow-container">
-          <ArrowIcon />
-        </div>
-      }
+      previousLabel={<ArrowIcon />}
+      nextLabel={<ArrowIcon />}
     />
   );
 };

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
-import { Genre } from 'type/genre';
 import { requestBackend } from 'util/requests';
+import { Genre } from 'type/genre';
 
 import './styles.css';
+import { Movie } from 'type/movie';
 
 export type MovieFilterData = {
   name: string;
@@ -30,7 +31,7 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
     setValue('genre', null);
   };
 
-  const handleChangeRange = (value: Genre) => {
+  const handleChangeGenre = (value: Genre) => {
     setValue('genre', value);
 
     const obj: MovieFilterData = {
@@ -43,7 +44,7 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
   useEffect(() => {
     requestBackend({ url: '/genres', withCredentials: true }).then(
       (response) => {
-        setSelectGenre(response.data);
+        setSelectGenre(response.data.content);
       }
     );
   }, []);
@@ -61,9 +62,9 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
                   {...field}
                   options={selectGenre}
                   isClearable
-                  placeholder="Gêneros"
-                  className="movie-select"
-                  onChange={(value) => handleChangeRange(value as Genre)}
+                  placeholder="Gênero"
+                  className="movie-filter-select"
+                  onChange={(value) => handleChangeGenre(value as Genre)}
                   getOptionLabel={(genre: Genre) => genre.name}
                   getOptionValue={(genre: Genre) => String(genre.id)}
                 />

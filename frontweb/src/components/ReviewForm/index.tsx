@@ -32,7 +32,7 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
 
     const config: AxiosRequestConfig = {
       method: 'POST',
-      url: '/reviews',
+      url: '/review',
       data: formData,
       withCredentials: true,
     };
@@ -61,6 +61,7 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
             className="form-control form-input base-input"
             placeholder="Deixe sua avaliação aqui"
           />
+          <div>{errors.text?.message}</div>
           <div className="form-submit">
             <Button text="Salvar Avaliação" />
           </div>
