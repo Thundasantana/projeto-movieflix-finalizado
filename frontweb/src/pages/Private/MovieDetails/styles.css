@@ -1,6 +1,30 @@
 .movie-details-container {
-  color: #ffffff;
-  font-size: 24px;
-  margin-top: 20px;
+  padding: 10px;
   padding-left: 10px;
+  border: 1px solid red;
+}
+
+.movie-details-card {
+  border: 1px solid green;
+  padding: 20px;
+}
+
+.img-container {
+  text-align: center;
+}
+
+.img-container img {
+  width: 256px;
+}
+
+.description-container {
+  border: 1px solid orange;
+}
+
+.description-container p {
+  padding: 9px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9E9E9E;
+  letter-spacing: -0.015em;
 }

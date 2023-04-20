@@ -5,7 +5,7 @@ const Movies = () => {
   return (
     <div className="movie-container">
       <h1>Tela listagem de filmes</h1>
-      <div className="movie-list">
+      <div className="/">
         <ul>
           <Link to="/movies/1">
             <li>Acessar /movies/1</li>

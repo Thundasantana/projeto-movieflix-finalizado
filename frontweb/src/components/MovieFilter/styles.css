@@ -1,74 +1,54 @@
-.movie-filter-container{
-    padding: 15px;
-    margin-bottom: 20px;
-  }
+.movie-filter-container {
+  padding: 15px;
+  margin-bottom: 20px;
+}
 
-  .movie-filter-name-container{
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    
-  }
+.movie-filter-botton-container {
+  display: flex;
+}
+.movie-filter-genre-container {
+  flex: 1;
+  margin-right: 10px;
+}
 
-  .movie-filter-name-container input{
-    border: none;
-  }
+.movie-filter-select {
+  color: black;
+}
 
-  .movie-filter-name-container input:focus{
-    box-shadow: none;
-  }
+.btn-genre-filter-clear {
+  font-weight: bold;
+  border-radius: 10px;
+}
 
-  .movie-filter-name-container input::placeholder{
-    color: #FFFFFF;
-  }
+.btn-genre-filter-word {
+  display: none;
+}
 
-  .movie-filter-search-icon{
-    border: none;
-    background-color: unset;
-  }
-
-  .movie-filter-botton-container{
-    display: flex;
-  }
-  .movie-filter-range-container{
+@media (min-width: 768px) {
+  .movie-filter-container {
+    width: 620px;
+    padding: 10px 15px;
     flex: 1;
-    margin-right: 10px;
   }
 
-  .movie-filter-select{
-    color: black;
+  .movie-filter-form {
+    display: flex;
   }
-
-  @media (min-width: 768px){
-    .movie-filter-container{
-     width: 620px;
-     padding: 10px 15px;
-     flex: 1;
-    }
-
-    .movie-filter-form{
-        display: flex;
-    }
-    .movie-filter-name-container{
-      flex: 1;
-      margin-right: 20px;
-      margin-bottom: 0;
-    }
-    .movie-filter-botton-container{
-      flex: 1;
-    }
+  .movie-filter-botton-container {
+    flex: 1;
   }
+}
 
-  @media (min-width: 992px){
-    .movie-filter-container{
-     width: 880px;
-    }
+@media (min-width: 992px) {
+  .movie-filter-container {
+    width: 880px;
   }
+}
 
-  @media (min-width: 1200px){
-    .movie-filter-container{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
+@media (min-width: 1200px) {
+  .movie-filter-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
+}

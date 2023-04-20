@@ -38,7 +38,35 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details-container">
-      <h1>Tela Detalhes do filme id: {movieId}</h1>
+      <div className=" base-card movie-details-card">
+        <div className="row">
+          <div className="col-xl-6">
+            <div className="img-container">
+              <img
+                src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/wu1uilmhM4TdluKi2ytfz8gidHf.jpg"
+                alt="nome do filme"
+              />
+            </div>
+          </div>
+          <div>
+            <h2>nome do filme</h2>
+          </div>
+          <div>
+            <p>ano</p>
+          </div>
+          <div>
+            <p>subtitulo</p>
+          </div>
+          <div className="col-xl-6">
+            <div className="description-container">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse,
+                mollitia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       {hasAnyRoles(['ROLE_MEMBER']) && (
         <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
       )}

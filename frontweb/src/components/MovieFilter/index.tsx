@@ -5,7 +5,6 @@ import { requestBackend } from 'util/requests';
 import { Genre } from 'type/genre';
 
 import './styles.css';
-import { Movie } from 'type/movie';
 
 export type MovieFilterData = {
   name: string;
@@ -17,18 +16,13 @@ type Props = {
 };
 
 const MovieFilter = ({ onSubmitFilter }: Props) => {
-  const [selectGenre, setSelectGenre] = useState<Genre[]>([]);
+  const [selectGenres, setSelectGenres] = useState<Genre[]>([]);
 
-  const { register, handleSubmit, setValue, getValues, control } =
+  const { handleSubmit, setValue, getValues, control } =
     useForm<MovieFilterData>();
 
   const onSubmit = (formData: MovieFilterData) => {
     onSubmitFilter(formData);
-  };
-
-  const handleFormClear = () => {
-    setValue('name', '');
-    setValue('genre', null);
   };
 
   const handleChangeGenre = (value: Genre) => {
@@ -41,10 +35,15 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
     onSubmitFilter(obj);
   };
 
+  const handleFormClear = () => {
+    setValue('name', '');
+    setValue('genre', null);
+  };
+
   useEffect(() => {
     requestBackend({ url: '/genres', withCredentials: true }).then(
       (response) => {
-        setSelectGenre(response.data.content);
+        setSelectGenres(response.data.content);
       }
     );
   }, []);
@@ -53,17 +52,17 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
     <div className=" base-card movie-filter-container">
       <form onSubmit={handleSubmit(onSubmit)} className="movie-filter-form">
         <div className="movie-filter-botton-container">
-          <div className="movie-filter-range-container">
+          <div className="movie-filter-genre-container">
             <Controller
               name="genre"
               control={control}
               render={({ field }) => (
                 <Select
                   {...field}
-                  options={selectGenre}
+                  options={selectGenres}
                   isClearable
-                  placeholder="Gênero"
-                  className="movie-filter-select"
+                  placeholder="Genero"
+                  classNamePrefix="movie-filter-select"
                   onChange={(value) => handleChangeGenre(value as Genre)}
                   getOptionLabel={(genre: Genre) => genre.name}
                   getOptionValue={(genre: Genre) => String(genre.id)}
@@ -71,8 +70,11 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
               )}
             />
           </div>
-          <button onClick={handleFormClear} className="btn btn-outline-primary">
-            Limpar
+          <button
+            onClick={handleFormClear}
+            className="btn btn-outline-secondary btn-genre-filter-clear"
+          >
+            LIMPAR,<span className="btn-genre-filter-word">FILTRO</span>
           </button>
         </div>
       </form>
