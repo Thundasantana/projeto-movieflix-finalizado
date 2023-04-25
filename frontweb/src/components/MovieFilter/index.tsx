@@ -74,7 +74,7 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
             onClick={handleFormClear}
             className="btn btn-outline-secondary btn-genre-filter-clear"
           >
-            LIMPAR,<span className="btn-genre-filter-word">FILTRO</span>
+            LIMPAR<span className="btn-genre-filter-word">FILTRO</span>
           </button>
         </div>
       </form>

@@ -1,6 +1,9 @@
 .movie-filter-container {
+  width: 300px;
   padding: 15px;
+  margin-right: 10px;
   margin-bottom: 20px;
+  border: 1px solid red;
 }
 
 .movie-filter-botton-container {
@@ -24,11 +27,16 @@
   display: none;
 }
 
+@media (min-width: 576px) {
+  .movie-filter-container {
+   width: 536px;
+  }
+}
+
 @media (min-width: 768px) {
   .movie-filter-container {
-    width: 620px;
-    padding: 10px 15px;
-    flex: 1;
+    width: 688px;
+
   }
 
   .movie-filter-form {
@@ -41,14 +49,18 @@
 
 @media (min-width: 992px) {
   .movie-filter-container {
-    width: 880px;
+    width: 912px;
   }
 }
 
 @media (min-width: 1200px) {
   .movie-filter-container {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 1119px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .movie-filter-container {
+    width: 1119px;
   }
 }

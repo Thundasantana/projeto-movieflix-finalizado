@@ -4,9 +4,9 @@
   justify-content: center;
   align-items: center;
   height: 160px;
-  margin: 20px 10px 0px 10px;
   background-color: #6c6c6c;
-  
+  margin-top: 25px;
+  border: 1px solid red;
 }
 
 .form-input {
@@ -25,15 +25,54 @@
   border: 1px solid black;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
+  .card-containner {
+    padding: 20px;
+    width: 536px;
+  }
   .form-input {
-    width: 700px;
+    width: 496px;
+  }
+  .form-submit button {
+    width: 496px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .card-containner {
+    width: 688px;
+  }
+  .form-input {
+    width: 608px;
+  }
+  .form-submit button {
+    width: 608px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-containner {
+    width: 912px;
+  }
+  .form-input {
+    width: 832px;
+  }
+  .form-submit button {
+    width: 400px;
   }
 }
 
 @media (min-width: 1200px) {
+  .card-containner {
+    width: 1120px;
+    margin-top: 40px;
+  }
   .form-input {
-    width: 1077px;
-    margin: 24px;
+    width: 1040px;
+  }
+
+  .form-submit button {
+    width: 400px;
   }
 }

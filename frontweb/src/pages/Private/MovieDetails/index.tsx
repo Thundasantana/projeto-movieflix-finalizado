@@ -48,13 +48,9 @@ const MovieDetails = () => {
               />
             </div>
           </div>
-          <div>
+          <div className="title-year-subtitle-container">
             <h2>nome do filme</h2>
-          </div>
-          <div>
-            <p>ano</p>
-          </div>
-          <div>
+            <h4>ano</h4>
             <p>subtitulo</p>
           </div>
           <div className="col-xl-6">
