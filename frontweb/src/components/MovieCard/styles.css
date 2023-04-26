@@ -1,7 +1,7 @@
 .movie-card {
-  border: 1px solid orange;
+  border-radius: 4px;
   background: #6c6c6c;
-  margin-top: 20px;
+  margin-bottom: 20px;
   height: 322px;
 }
 
@@ -15,7 +15,14 @@
   width: 290px;
 }
 
-.card-bottom-container p {
+.card-title-container h6 {
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffffff;
+  margin-left: 15px;
+}
+
+.card-year-container p {
   font-weight: 700;
   font-size: 16px;
   letter-spacing: -0.015em;
@@ -24,28 +31,13 @@
   margin-left: 15px;
 }
 
-.card-title h6 {
-  font-weight: 700;
-  font-size: 20px;
-  color: #ffffff;
-  margin-left: 15px;
-}
-
-.card-subtitulo p {
+.card-subtitulo-container p {
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.015em;
   margin-top: -10px;
   margin-left: 15px;
   color: #ffffff;
-}
-
-.card-bottom-container h6 {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 27px;
-  letter-spacing: -0.015em;
 }
 
 @media (min-width: 576px) {
@@ -63,7 +55,7 @@
   .movie-card {
     width: 324px;
     height: 364px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
   .card-top-container img {
     width: 322px;
@@ -92,10 +84,7 @@
 
 @media (min-width: 1400px) {
   .movie-card {
-    height: 322px;
     width: 258px;
+    height: 322px;
   }
 }
-
-
-

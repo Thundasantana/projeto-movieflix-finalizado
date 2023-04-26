@@ -1,11 +1,9 @@
 .movie-details-container {
   width: 100%;
   padding: 10px;
-  border: 1px solid red;
 }
 
 .movie-details-card {
-  border: 1px solid orange;
   padding: 20px;
 }
 
@@ -16,7 +14,6 @@
 
 .img-container img {
   width: 260px;
-  border: 1px solid blue;
 }
 
 .title-year-subtitle-container h2 {

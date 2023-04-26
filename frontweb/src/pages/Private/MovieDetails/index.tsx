@@ -53,14 +53,14 @@ const MovieDetails = () => {
             <h4>ano</h4>
             <p>subtitulo</p>
           </div>
-          <div className="col-xl-6">
+          
             <div className="description-container">
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse,
                 mollitia.
               </p>
             </div>
-          </div>
+          
         </div>
       </div>
       {hasAnyRoles(['ROLE_MEMBER']) && (

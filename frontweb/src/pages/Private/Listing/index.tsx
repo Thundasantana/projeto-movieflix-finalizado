@@ -73,7 +73,7 @@ const Listing = () => {
           <CardLoader />
         ) : (
           page?.content.map((movies) => (
-            <div key={movies.id} className="col-sm-6 col-lg-4 col-xl-3">
+            <div key={movies.id} className="col-sm-6 col-xl-3">
               <Link to={`/movies/${movies.id}`}>
                 <MovieCard movie={movies} />
               </Link>

@@ -28,11 +28,12 @@
 }
 
 .arrow-previous {
-  transform: rotate(-180deg);
+  transform: rotate(90deg);
   color: #ffc700;
 }
 
 .arrow-next {
+  transform: rotate(-90deg);
   margin-left: 10px;
   color: #ffc700;
 }

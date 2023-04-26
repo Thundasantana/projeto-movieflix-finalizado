@@ -11,13 +11,13 @@ const MovieCard = ({ movie }: Props) => {
       <div className="card-top-container">
         <img src={movie.imgUrl} alt={movie.title} />
       </div>
-      <div className="card-title">
+      <div className="card-title-container">
         <h6>{movie.title}</h6>
       </div>
-      <div className="card-bottom-container">
+      <div className="card-year-container">
         <p>{movie.year}</p>
       </div>
-      <div className="card-subtitulo">
+      <div className="card-subtitulo-container">
         <p>{movie.subTitle}</p>
       </div>
     </div>
