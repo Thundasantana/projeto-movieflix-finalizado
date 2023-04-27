@@ -72,10 +72,10 @@ const Listing = () => {
         {isLoading ? (
           <CardLoader />
         ) : (
-          page?.content.map((movies) => (
-            <div key={movies.id} className="col-sm-6 col-xl-3">
-              <Link to={`/movies/${movies.id}`}>
-                <MovieCard movie={movies} />
+          page?.content.map((movie) => (
+            <div key={movie.id} className="col-sm-6 col-xl-3">
+              <Link to={`/movies/${movie.id}`}>
+                <MovieCard movie={movie} />
               </Link>
             </div>
           ))
