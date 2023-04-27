@@ -1,40 +1,27 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Review } from 'type/review';
-import { AxiosRequestConfig } from 'axios';
-import { requestBackend } from 'util/requests';
-import { hasAnyRoles } from 'util/auth';
-import ReviewForm from 'components/ReviewForm';
-import ReviewListing from 'components/ReviewListing';
+import { BASE_URL } from 'util/requests';
+import axios from 'axios';
+import { Movie } from 'type/movie';
 
 import './styles.css';
+import { useParams } from 'react-router-dom';
 
-type urlParams = {
+type UrlParams = {
   movieId: string;
-};
+}
 
 const MovieDetails = () => {
-  const { movieId } = useParams<urlParams>();
 
-  const [reviews, setReviews] = useState<Review[]>([]);
+const { movieId } = useParams<UrlParams>();
+
+  const [movie, setMovie] = useState<Movie>();
 
   useEffect(() => {
-    const config: AxiosRequestConfig = {
-      method: 'GET',
-      url: `/movies/${movieId}/reviews`,
-      withCredentials: true,
-    };
-
-    requestBackend(config).then((response) => {
-      setReviews(response.data);
+    axios.get(`${BASE_URL}/movies/${movieId}`)
+    .then((response) => {
+      setMovie(response.data);
     });
   }, [movieId]);
-
-  const handleInsertReview = (review: Review) => {
-    const clone = [...reviews];
-    clone.push(review);
-    setReviews(clone);
-  };
 
   return (
     <div className="movie-details-container">
@@ -42,35 +29,23 @@ const MovieDetails = () => {
         <div className="row">
           <div className="col-xl-6">
             <div className="img-container">
-              <img
-                src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/wu1uilmhM4TdluKi2ytfz8gidHf.jpg"
-                alt="nome do filme"
-              />
+              <img src={movie?.imgUrl}
+               alt={movie?.title} />
+            </div>
+
+            <div className="title-year-subtitle-container">
+              <h2>{movie?.title}</h2>
+              <h4>{movie?.year}</h4>
+              <p>{movie?.subTitle}</p>
             </div>
           </div>
-          <div className="title-year-subtitle-container">
-            <h2>nome do filme</h2>
-            <h4>ano</h4>
-            <p>subtitulo</p>
-          </div>
-          
+          <div className="col-xl-6">
             <div className="description-container">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse,
-                mollitia.
-              </p>
+              <p>{movie?.synopsis}</p>
             </div>
-          
+          </div>
         </div>
       </div>
-      {hasAnyRoles(['ROLE_MEMBER']) && (
-        <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
-      )}
-      {reviews?.map((item) => (
-        <div key={item.id}>
-          <ReviewListing name={item.user.name} text={item.text} />
-        </div>
-      ))}
     </div>
   );
 };

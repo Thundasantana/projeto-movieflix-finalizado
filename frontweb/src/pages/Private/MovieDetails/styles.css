@@ -1,10 +1,12 @@
 .movie-details-container {
   width: 100%;
   padding: 10px;
+  border: 1px solid red;
 }
 
 .movie-details-card {
   padding: 20px;
+  border: 1px solid orange;
 }
 
 .img-container {
@@ -96,10 +98,10 @@
 
 @media (min-width: 1200px) {
   .movie-details-card {
-    display: flex;
-    padding: 20px;
+    padding: 40px;
     width: 1120px;
   }
+
   .img-container img {
     width: 500px;
   }
