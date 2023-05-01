@@ -20,17 +20,27 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState<Movie>();
 
   const [reviews, setReviews] = useState<Review[]>([]);
-
   useEffect(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: `/movies/${movieId}/reviews`,
       withCredentials: true,
     };
+    requestBackend(config)
+    .then((response) => {
+      setReviews(response.data);
+    });
+  }, [movieId]);
+
+  useEffect(() => {
+    const config: AxiosRequestConfig = {
+      method: 'GET',
+      url: `/movies/${movieId}`,
+      withCredentials: true,
+    };
 
     requestBackend(config).then((response) => {
       setMovie(response.data);
-      setReviews(response.data);
     });
   }, [movieId]);
 
